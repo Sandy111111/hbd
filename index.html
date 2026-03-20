@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Piyu! 🎂</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --rose: #e8436a;
+  --gold: #f5c842;
+  --blush: #fce4ec;
+  --deep: #1a0a10;
+  --cream: #fff8f0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 40px 0;
+}
+
+/* Stars */
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle var(--d,3s) ease-in-out infinite var(--delay,0s);
+}
+@keyframes twinkle {
+  0%,100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.4); }
+}
+
+/* Petals */
+.petals-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.petal {
+  position: absolute;
+  top: -60px;
+  font-size: var(--fs,1.2rem);
+  animation: fall var(--dur,6s) linear var(--del,0s) infinite;
+}
+@keyframes fall {
+  0% { transform: translateY(0); opacity:0; }
+  10% { opacity:0.7; }
+  100% { transform: translateY(110vh) rotate(720deg) translateX(var(--drift,60px)); opacity:0; }
+}
+
+/* Card */
+.card {
+  position: relative;
+  z-index: 10;
+  width: min(500px, 92vw);
+  background: linear-gradient(145deg,#3a0f24 0%,#1a0a10 60%,#2d0f1d 100%);
+  border: 1px solid rgba(232,67,106,0.3);
+  border-radius: 4px;
+  padding: 56px 48px 52px;
+  text-align: center;
+  box-shadow:
+    0 0 0 1px rgba(245,200,66,0.18),
+    0 40px 80px rgba(0,0,0,0.6),
+    0 0 80px rgba(232,67,106,0.12);
+  animation: cardIn 1.2s ease both;
+}
+@keyframes cardIn {
+  from { opacity:0; transform:translateY(40px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* Badge */
+.badge {
+  display:inline-flex;
+  gap:8px;
+  padding:6px 18px;
+  border-radius:100px;
+  background: rgba(232,67,106,0.2);
+  border:1px solid rgba(232,67,106,0.5);
+  color: var(--gold);
+  font-size:0.7rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+}
+
+/* Cake */
+.cake {
+  font-size:3.4rem;
+  margin:16px 0;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  50% { transform: translateY(-8px); }
+}
+
+/* Title */
+.name {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.6rem,9vw,3.8rem);
+  font-weight:700;
+  background: linear-gradient(135deg,#fff,#f5c842);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:
+    0 0 12px rgba(245,200,66,0.5),
+    0 0 30px rgba(245,200,66,0.3);
+}
+
+/* Subtitle */
+.subtitle {
+  color: rgba(255,255,255,0.6);
+  margin-top:5px;
+}
+
+/* Divider */
+.divider {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:28px 0;
+}
+.divider::before,
+.divider::after {
+  content:'';
+  flex:1;
+  height:1px;
+  background: linear-gradient(to right,transparent,rgba(245,200,66,0.6),transparent);
+}
+.divider span {
+  color: var(--gold);
+}
+
+/* Message */
+.message {
+  font-size:1.08rem;
+  line-height:1.8;
+  color: rgba(255,235,240,0.9);
+}
+
+/* Signature */
+.signature {
+  margin-top:20px;
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;
+  color: var(--rose);
+}
+
+/* Balloons */
+.balloons {
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+<div class="petals-container" id="petals"></div>
+
+<div class="card">
+  <div class="badge">✦ a special day ✦</div>
+  <div class="cake">🎂</div>
+
+  <h1 class="name">Happy Birthday</h1>
+  <p class="subtitle">Dearest Piyu</p>
+
+  <div class="divider"><span>❧</span></div>
+
+  <p class="message">
+    Happy Birthday to the <em>most special girl</em> in my life 💖<br><br>
+    You are the one who knows me better than anyone else —
+    the one who understands my days, my struggles, and everything happening in my life.<br><br>
+    With you, I can truly be myself, without any filters.<br><br>
+    You've taught me how to stay strong and keep going even when everything feels like it's falling apart.<br><br>
+    Wishing you the happiest birthday 💫✨
+  </p>
+
+  <div class="signature">Sandy 💕</div>
+
+  <div class="balloons">🎈🎉🎁🎀🎊</div>
+</div>
+
+<script>
+const stars = document.getElementById('stars');
+for(let i=0;i<100;i++){
+  let s=document.createElement('div');
+  s.className='star';
+  s.style.width=s.style.height=Math.random()*3+'px';
+  s.style.top=Math.random()*100+'%';
+  s.style.left=Math.random()*100+'%';
+  s.style.setProperty('--d',Math.random()*4+2+'s');
+  stars.appendChild(s);
+}
+
+const petals = document.getElementById('petals');
+const emojis=['🌸','✨','💫','⭐','💖'];
+for(let i=0;i<20;i++){
+  let p=document.createElement('div');
+  p.className='petal';
+  p.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+  p.style.left=Math.random()*100+'%';
+  p.style.setProperty('--dur',Math.random()*6+6+'s');
+  p.style.setProperty('--drift',(Math.random()-0.5)*100+'px');
+  petals.appendChild(p);
+}
+</script>
+
+</body>
+</html>
